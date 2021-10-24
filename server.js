@@ -4,23 +4,29 @@ import mongodb from 'mongodb';
 const { MongoClient, ObjectId } = mongodb;
 import Cors from 'cors';
 
-dotenv.config({path:'./.env'});
 
-const stringConexion = process.env.DATABASE_URL;
+// import { MongoClient, ObjectId } from "mongodb";
 
-const client = new MongoClient(stringConexion, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+
+const stringbaseDeDatos = 'mongodb+srv://admin:adminsp@clusterauth0.ykzsz.mongodb.net/db-name?retryWrites=true&w=majority';
+
+//Este es un cliente ahora debemos conectarnos al mismo
+const client = new MongoClient (stringbaseDeDatos, {
+    useNewUrlParser:true,
+    useUnifiedTopology:true,
 });
 
-let baseDeDatos; 
+//Variable global para utilizar dentro del main y poderla compartir.
+let baseDeDatos;
 
 const app = Express();
 
 app.use(Express.json());
 
-
 app.use(Cors());
+
+
+
 
 app.get("/productos", (req, res) => {
     console.log("alguien hizo get en la ruta /productos");
