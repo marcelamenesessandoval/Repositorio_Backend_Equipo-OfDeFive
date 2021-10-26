@@ -15,8 +15,8 @@ const queryAllUsuarios = async (callback) => {
 
 const crearUsuario = async (datosUsuario, callback) => {
     if (
-        Object.keys(datosUsuario).includes('idUsuario') &&
         Object.keys(datosUsuario).includes('nombreUsuario') &&
+        Object.keys(datosUsuario).includes('correoUsuario') &&
         Object.keys(datosUsuario).includes('rol')  &&
         Object.keys(datosUsuario).includes('estadoUsuario') 
 
